@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "source": "Live Django API and production Next.js, no mocks or writes",
+  "total": 99,
+  "categories": [
+    {
+      "category": "Десерты",
+      "shown": 8
+    },
+    {
+      "category": "Закуски",
+      "shown": 20
+    },
+    {
+      "category": "Напитки",
+      "shown": 18
+    },
+    {
+      "category": "Пицца",
+      "shown": 13
+    },
+    {
+      "category": "Роллы",
+      "shown": 11
+    },
+    {
+      "category": "Салаты",
+      "shown": 4
+    },
+    {
+      "category": "Соуса",
+      "shown": 6
+    },
+    {
+      "category": "Суши и Роллы",
+      "shown": 19
+    }
+  ]
+}

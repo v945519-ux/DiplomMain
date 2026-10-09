@@ -1,0 +1,13 @@
+**/node_modules
+**/.next
+**/.git
+**/__pycache__
+**/.env*
+**/*.sqlite3
+config/media
+config/staticfiles
+client
+design-review
+*.log
+.npm-cache
+.venv

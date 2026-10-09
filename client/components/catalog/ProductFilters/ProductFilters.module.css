@@ -1,0 +1,187 @@
+/* ProductFilters.module.css */
+
+.filters {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Декоративное облачко на фоне */
+.filters::before {
+  content: "☁";
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 80px;
+  opacity: 0.04;
+  pointer-events: none;
+  transform: rotate(10deg);
+  animation: floatCloud 20s ease-in-out infinite;
+}
+
+.filters::after {
+  content: "☁";
+  position: absolute;
+  bottom: -30px;
+  left: -15px;
+  font-size: 100px;
+  opacity: 0.03;
+  pointer-events: none;
+  transform: rotate(-5deg);
+  animation: floatCloud 25s ease-in-out infinite reverse;
+}
+
+@keyframes floatCloud {
+  0%, 100% {
+    transform: translate(0, 0) rotate(10deg);
+  }
+  50% {
+    transform: translate(20px, -15px) rotate(15deg);
+  }
+}
+
+/* Стили для инпутов внутри фильтров */
+.filters input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  padding: 10px 16px !important;
+  font-size: 14px !important;
+  transition: all 0.25s ease !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.filters input::placeholder {
+  color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.filters input:focus {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.04) !important;
+}
+
+.filters input:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Стили для кнопок внутри фильтров */
+.filters button {
+  min-height: 42px;
+  padding: 0 24px;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Первая кнопка (Применить) - белая */
+.filters button:first-of-type {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f2 100%) !important;
+  color: #1a1a2e !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 
+    0 2px 12px rgba(255, 255, 255, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+.filters button:first-of-type:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 
+    0 6px 24px rgba(255, 255, 255, 0.15),
+    0 8px 30px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #e8e8ea 100%) !important;
+}
+
+/* Вторая кнопка (Сбросить) - прозрачная с обводкой */
+.filters button:last-of-type {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.filters button:last-of-type:hover {
+  transform: translateY(-2px) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Адаптивность */
+.filters > :first-child,
+.filters > :nth-child(2) {
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 640px) {
+  .filters {
+    padding: 16px 18px;
+    gap: 10px;
+    border-radius: 12px;
+  }
+
+  .filters > :first-child,
+  .filters > :nth-child(2) {
+    min-width: 100px;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .filters button {
+    flex: 1;
+    min-width: 80px;
+    padding: 0 16px;
+    font-size: 13px !important;
+  }
+
+  .filters::before,
+  .filters::after {
+    display: none;
+  }
+}
+
+/* Планшетная адаптация */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .filters {
+    padding: 18px 20px;
+  }
+
+  .filters > :first-child,
+  .filters > :nth-child(2) {
+    max-width: 150px;
+  }
+}
+
+/* Оптимизация для темной темы */
+@media (prefers-color-scheme: dark) {
+  .filters {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+}

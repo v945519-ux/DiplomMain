@@ -1,0 +1,37 @@
+@import "tailwindcss";
+:root {
+ color-scheme: light;
+ --bg: #ffffff; --surface: #fff; --surface-soft: #f5eee4;
+ --primary: #be432e; --primary-hover: #a93423; --text: #352c27; --text-muted: #77675c; --border: #e8ddd1;
+ --shadow-soft: 0 8px 24px rgb(89 58 32 / 6%); --shadow-button: 0 4px 0 #a33423, 0 8px 16px rgb(160 57 36 / 12%);
+ --radius-sm: 14px; --radius-md: 22px; --radius-lg: 28px;
+ --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px;
+ --danger: #b32d32; --success: #386347;
+ /* Compatibility with existing page and UI modules. */
+ --surface-2: var(--surface-soft); --line: var(--border); --muted: var(--text-muted); --cream: var(--text);
+ --gold: var(--primary); --orange: #ce5238; --orange-2: var(--primary-hover); --shadow: var(--shadow-soft);
+ --text-primary: var(--text); --text-secondary: var(--text-muted); --bg-card: var(--surface); --bg-elevated: var(--surface-soft);
+ --accent: var(--primary); --accent-dark: var(--primary-hover); --accent-light: #ce5238; --border-accent: var(--border); --transition: 200ms ease;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 160px; }
+body { min-width: 320px; margin: 0; color: var(--text); background: var(--bg); font-family: ui-rounded, "Segoe UI", system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button:disabled { cursor: not-allowed; opacity: .55; transform: none; }
+button:not(:disabled):active, a:active { transform: translateY(1px); }
+input, select, textarea { color: var(--text); }
+input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 1; }
+:focus-visible { outline: 3px solid var(--primary) !important; outline-offset: 4px; }
+img { display: block; max-width: 100%; }
+::selection { color: var(--text); background: #f6d8c2; }
+.bootScreen { display: grid; min-height: 100vh; place-items: center; color: var(--text-muted); }
+.skipLink { position: fixed; top: 8px; left: 16px; z-index: 100; padding: 12px 20px; border-radius: var(--radius-sm); background: var(--surface); transform: translateY(-180%); }
+.skipLink:focus { transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+
+h1, h2, h3 { font-weight: 750; }
+button:disabled:hover { transform: none !important; }
+

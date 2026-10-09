@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "images": 99,
+  "missingImages": [],
+  "header": {
+    "background": "rgb(255, 255, 255)",
+    "position": "sticky",
+    "filter": "none"
+  },
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "continuousAnimations": 0
+}

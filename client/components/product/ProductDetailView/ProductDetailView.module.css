@@ -1,0 +1,164 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 0 48px; width: 100%;
+  
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 240ms ease;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.imageSection {
+  position: relative;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+}
+
+.image {
+  object-fit: contain; padding: 24px;
+  transition: transform 240ms ease;
+}
+
+.imageWrap:hover .image {
+  transform: scale(1.03);
+}
+
+.imageGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(255, 107, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+.popularBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weight {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.priceBlock {
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--accent);
+  
+}
+
+.description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.favBtn {
+  padding: 14px 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 240ms ease;
+}
+
+.favBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  
+}
+
+.favActive {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(255, 107, 0, 0.1);
+}
+
+.authHint {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.authLink {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.authLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+

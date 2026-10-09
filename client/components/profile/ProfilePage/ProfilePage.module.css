@@ -1,0 +1,402 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95), rgba(20, 10, 30, 0.98));
+}
+
+.main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  position: relative;
+}
+
+/* 🌟 Декоративное облачное свечение для страницы */
+.main::before {
+  content: '';
+  position: fixed;
+  top: 20%;
+  left: -10%;
+  width: 40%;
+  height: 40%;
+  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.06), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: pageCloudGlow 8s ease-in-out infinite alternate;
+}
+
+.main::after {
+  content: '';
+  position: fixed;
+  bottom: 10%;
+  right: -10%;
+  width: 45%;
+  height: 45%;
+  background: radial-gradient(ellipse at center, rgba(192, 132, 252, 0.05), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: pageCloudGlow 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pageCloudGlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.title {
+  margin: 0 0 32px;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #e9d5ff, #c084fc, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid rgba(139, 92, 246, 0.15);
+  padding-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.tab {
+  position: relative;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab:hover {
+  color: #c084fc;
+}
+
+.tabActive {
+  color: #c084fc;
+}
+
+.tabActive::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #a855f7, #c084fc, #e9d5ff);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.5);
+  border-radius: 2px;
+}
+
+.tabBadge {
+  padding: 2px 8px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+.error {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  border-radius: var(--radius-sm);
+  color: #ff6b6b;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.success {
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: rgba(76, 175, 80, 0.1);
+  border: 1px solid rgba(76, 175, 80, 0.3);
+  border-radius: var(--radius-sm);
+  color: #81c784;
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.emptyState h1 {
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, #e9d5ff, #c084fc, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form {
+  background: rgba(20, 15, 30, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 
+    0 4px 30px rgba(139, 92, 246, 0.08),
+    inset 0 1px 0 rgba(168, 85, 247, 0.1);
+  transition: border-color var(--transition);
+}
+
+.form:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+.username {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.username strong {
+  background: linear-gradient(135deg, #a855f7, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 🟣 Кнопка сохранения с фиолетовым градиентом */
+.formFooter button {
+  background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.formFooter button:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5) !important;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.emptyOrders {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.emptyOrders p {
+  margin: 0 0 20px;
+}
+
+.orderList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.orderCard {
+  background: rgba(20, 15, 30, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: all var(--transition);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.orderCard:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+.orderHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.orderId {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  color: #c084fc;
+}
+
+.orderDate {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.orderStatus {
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status_pending {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.1);
+}
+
+.status_confirmed,
+.status_preparing {
+  background: rgba(33, 150, 243, 0.15);
+  color: #64b5f6;
+  border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.status_delivering {
+  background: rgba(139, 92, 246, 0.2);
+  color: #c084fc;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.status_completed {
+  background: rgba(76, 175, 80, 0.15);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.1);
+}
+
+.status_cancelled {
+  background: rgba(244, 67, 54, 0.15);
+  color: #ef9a9a;
+  border: 1px solid rgba(244, 67, 54, 0.1);
+}
+
+.orderItems {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderItem {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 4px 0;
+}
+
+.orderItemQty {
+  color: var(--text-muted);
+}
+
+.orderItemPrice {
+  color: #c084fc;
+  font-weight: 500;
+  min-width: 80px;
+  text-align: right;
+}
+
+.orderFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.orderMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.orderTotal {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #c084fc, #e9d5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 600px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formFooter {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+}

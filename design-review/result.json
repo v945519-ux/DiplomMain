@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "api": "intercepted fixtures, no database writes",
+  "checks": [
+    "catalog",
+    "search",
+    "CTA",
+    "guest redirect",
+    "login",
+    "registration layout",
+    "profile",
+    "quantity",
+    "checkout",
+    "product detail",
+    "favorite",
+    "reduced motion",
+    "keyboard focus",
+    "no page errors"
+  ],
+  "requests": 124
+}

@@ -1,0 +1,109 @@
+.hero {
+  position: relative;
+  padding: 80px 24px 100px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  pointer-events: none;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.content {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  animation: fadeInUp 0.8s ease;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 6px 16px;
+  margin-bottom: 20px;
+  background: rgba(255, 107, 0, 0.1);
+  border: 1px solid var(--border-accent);
+  border-radius: 20px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.accent {
+  display: block;
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  margin: 0 0 32px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.decor {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.ring,
+.ring2 {
+  position: absolute;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.ring {
+  width: 200px;
+  height: 200px;
+  animation: spin 20s linear infinite;
+}
+
+.ring2 {
+  width: 280px;
+  height: 280px;
+  top: -40px;
+  left: -40px;
+  border-style: dashed;
+  animation: spin 30s linear infinite reverse;
+}
+
+@media (max-width: 768px) {
+  .decor {
+    display: none;
+  }
+
+  .hero {
+    padding: 60px 20px 80px;
+  }
+}
